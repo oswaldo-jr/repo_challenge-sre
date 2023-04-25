@@ -13,6 +13,7 @@ apt install links wget curl tcpdump net-tools telnet snap -y
 echo ""
 echo " Instalando NGINX"
 apt install nginx -y
+apt install fcgiwrap -y 
 echo ""
 echo "Liberando portas 80HTTP e 443HTTPS no firewall"
 echo ""
@@ -34,7 +35,7 @@ firewall-cmd --list-all
 echo ""
 echo " Testando se o serviço NGINX está ativo"
 systemctl status nginx
-wget https://cloudengineer-ecommerce.s3.amazonaws.com/challenge.tar.gz
+wget https://github.com/oswaldo-jr/repo_challenge-sre/blob/main/challenge.tar.gz
 chmod +x challenge.tar.gz
 tar -xzf challenge.tar.gz
 mv challenge/* /root
@@ -42,6 +43,9 @@ cp -rf challenge-sre-2023 /home/ubuntu/
 mv /var/www www.bkp
 cp -rf www /var
 chmod 777 /var/www
+chmod 755 /var/www/cgi-bin
+systemctl enable fcgiwrap
+systemctl restart nginx
 echo ""
 curl http://127.0.0.1 
 echo ""
