@@ -4,6 +4,7 @@ Repositório para o desafio challenge SRE
 #README
 # Proposito: Automatizar instalação do Nginx na instancia EC2 AWS
 # Autor: Oswaldo Galdino - og.junior@hotmail.com
+# http://23.23.10.251/
 # ------------------------------------------------------------
 
 Para a instalação do ambiente na amazon utilizando o recurso é preciso:
